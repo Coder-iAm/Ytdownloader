@@ -86,6 +86,7 @@ body {
     background-color: rgba(120, 120, 120, 0.489);
     width: 150px;
     top: 120px;
+    z-index:1;
 }
 
 #subpages {
@@ -102,7 +103,8 @@ body {
 }
 
 #subpages a:hover {
-    background-color: rgba(0, 0, 0, 0.582);
+     color: rgb(0, 55, 255);
+    background-color: rgb(0, 0, 0);
 }
 
 
