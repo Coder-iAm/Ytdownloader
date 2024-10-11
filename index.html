@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yt Downloader</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon"  href="Images/favicon.jpg">
+</head>
+
+<body>
+
+    <nav id="navbar">
+        <span id="logo">
+            <img src="Images/logo.png"> Downloader
+        </span>
+
+        <p id="pages">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="privacy.html">Privacy Policies</a>
+        </p>
+
+        <p id="menubar">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </p>
+    </nav>
+
+
+    <div id="submenu">
+
+        <p id="subpages">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="privacy.html">Privacy Policies</a>
+        </p>
+
+    </div>
+
+
+    <div id="container">
+
+
+        <!-- Video Background -->
+        <video id="video" autoplay muted loop>
+            <source src="https://cdn.pixabay.com/video/2016/02/29/2294-157183594_large.mp4" type="video/mp4">
+        </video>
+
+
+        <h1 id="headline">Your Tube Downloader</h1>
+        <p>All YouTube photos can be downloaded from here!</p>
+        <input type="text" id="inputurl" placeholder="https://youtu.be/....or..youtube.com/watch?v=">
+        <p id="btn">Submit</p>
+
+        <select id="resolution">
+            <option value="maxresdefault" selected>1280x720p</option>
+            <option value="sddefault">640x480p</option>
+            <option value="hqdefault">480x360p</option>
+            <option value="mqdefault">320x180p</option>
+
+        </select>
+
+    </div>
+
+    <div id="imgsection">
+        <center>
+            <p>The thumbnail of your pasted video is appeared here !</p>
+        </center>
+        <div id="image"></div>
+        <div id="download"></div>
+    </div>
+<center><h2>How to use Yt Downloader</h2></center>
+    <div id="description">
+        <img src="Images/Description.jpg" alt="image">
+        <div>
+            <p id="destext">Here is the strategy to download YouTube photos and thumbnails that will help you grow in
+                your business and
+                make the best thumbnail by inspirations.There are many options to grow up on YouTube, but before
+                uploading
+                videos, it is very important to focus on thumbnails because thumbnails make your video theme attractive
+                and
+                expensive.
+            <ul>
+                <li id="destext"><i id="icons" class="fas fa-check-circle"></i> First of all, you have to paste your
+                    YouTube video link by following the structure given inside the
+                    input box.</li>
+
+                <li id="destext"><i id="icons" class="fas fa-check-circle"></i> After pasting the link, you may select
+                    the quality given above, or it will have already been selected.
+                </li>
+                <li id="destext"><i id="icons" class="fas fa-check-circle"></i> Next, you have to click the submit
+                    option to get a thumbnail.</li>
+                <li id="destext"><i id="icons" class="fas fa-check-circle"></i> After the thumbnail appears, you can
+                    download it.</li>
+            </ul>
+            <p id="destext">You have to press the thumbnail for 3 seconds, and then the browser will show you the save
+                or download image
+                option.</p>
+            </p>
+        </div>
+    </div>
+
+    <footer id="footer">
+        <div> <p>If you face any problem then you can contact with us @<a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=ytdownloaderhelp@gmail.com&su=Write%20your%20queries&body=">Yt
+            Downloader Official help centre</a>
+        &copy;copyright 2024</p>
+        </div>
+
+    </footer>
+
+    <script>
+        const headline = "Your Tube Downloader";
+var animationText = "";
+var i = 0;
+function textAnimation() {
+    if (headline.length == animationText.length) {
+        i = 0;
+        animationText = "";
+        document.getElementById("headline").innerText = "";
+    }
+    else {
+        animationText = animationText + headline[i];
+        i += 1;
+        document.getElementById("headline").innerText = animationText;
+    }
+
+
+}
+
+setInterval(textAnimation, 500);
+
+
+document.getElementById("btn").addEventListener('click', function () {
+    const res = document.getElementById("resolution").value;
+
+    const text = document.getElementById("inputurl").value;
+    var vid = "";
+    if (text.includes("be/")) {
+
+        let index = text.indexOf("be/");
+        index += 3;
+        for (let i = 0; i < 11; i++) {
+            vid = vid + text[index];
+            index++;
+
+        }
+    }
+    else if (text.includes("?v=")) {
+        let index = text.indexOf("?v=");
+        index += 3;
+        for (let i = 0; i < 11; i++) {
+            vid = vid + text[index];
+            index++;
+
+
+        }
+    }
+    else {
+        alert("Please enter a valid url !");
+    }
+
+    videoId(vid);
+    function videoId(vid) {
+        if (vid) {
+            document.getElementById("image").innerHTML = `<img src="https://img.youtube.com/vi/${vid}/${res}.jpg">`
+            document.getElementById("download").innerHTML = `<a href="https://img.youtube.com/vi/${vid}/${res}.jpg" download>Download</a>`
+
+        }
+    }
+
+
+
+
+})
+
+
+function updatescreen() {
+
+    if (window.innerWidth > 700) {
+        document.getElementById("submenu").style.display = "none";
+    }
+
+}
+updatescreen();
+window.addEventListener("resize", updatescreen);
+
+
+document.getElementById("menubar").addEventListener('click', function () {
+
+    let toogle = document.getElementById("submenu").style.display;
+
+    if (toogle == "none") {
+        document.getElementById("submenu").style.display = "block";
+
+    }
+    else {
+        document.getElementById("submenu").style.display = "none";
+    }
+
+
+
+})
+
+
+
+    </script>
+
+</body>
+
+</html>
